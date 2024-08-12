@@ -3,7 +3,7 @@
 #include <string.h>
 #include <conio.h>
 
-#define NUM_PRODUTOS 3  // Defina o número de produtos
+#define NUM_PRODUTOS 100 // Defina o número de produtos
 
 // Define a estrutura dos produtos.
 typedef struct {
@@ -188,7 +188,7 @@ void menu() {
                 printf("\nOpcao invalida. Tente novamente.\n");
                 getch(); // Aguarda entrada do usuário.
         }
-    } while (opcao != 0);
+    } while (opcao != 5);
 }
 
 int main() {
