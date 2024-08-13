@@ -3,7 +3,7 @@
 #include <string.h>
 #include <conio.h>
 
-#define NUM_PRODUTOS 100 // Defina o número de produtos
+#define NUM_PRODUTOS 100 // Define o número de produtos.
 
 // Define a estrutura dos produtos.
 typedef struct {
@@ -27,7 +27,7 @@ void cadastrar_produtos(Produto produtos[]) {
     for (int i = 0; i < NUM_PRODUTOS; i++) {
         printf("Nome do produto: ");
         fflush(stdin);  // Limpa o buffer de entrada (apenas no Windows)
-        fgets(produtos[i].nome, sizeof(produtos[i].nome), stdin);
+        fgets(produtos[i].nome, sizeof(produtos[i].nome), stdin); // Entrada de dados sem desconsiderar os espaços.
         strtok(produtos[i].nome, "\n"); // Remove o caractere de nova linha
 
         printf("Quantidade em estoque: ");
@@ -36,9 +36,9 @@ void cadastrar_produtos(Produto produtos[]) {
         scanf("%f", &produtos[i].preco);
         
         printf("Categoria: ");
-        fflush(stdin);  // Limpa o buffer de entrada
-        fgets(produtos[i].categoria, sizeof(produtos[i].categoria), stdin);
-        strtok(produtos[i].categoria, "\n"); // Remove o caractere de nova linha
+        fflush(stdin);
+        fgets(produtos[i].categoria, sizeof(produtos[i].categoria), stdin); 
+        strtok(produtos[i].categoria, "\n");
         
         printf("Produto cadastrado com sucesso!\n");
         getchar(); // Limpa o buffer após a leitura de números
@@ -68,9 +68,9 @@ void alterar_informacoes_produto(Produto produtos[]) {
 
     // Recebe o nome do produto que será atualizado.
     printf("Informe o nome do produto que será atualizado: ");
-    fflush(stdin);  // Limpa o buffer do teclado.
-    fgets(nomeProduto, sizeof(nomeProduto), stdin); // Entrada de dados sem desconsiderar os espaços.
-    strtok(nomeProduto, "\n"); // Remove o caractere de nova linha
+    fflush(stdin);
+    fgets(nomeProduto, sizeof(nomeProduto), stdin);
+    strtok(nomeProduto, "\n");
 
     for (int i = 0; i < NUM_PRODUTOS; i++){
         if (strcmp(produtos[i].nome, nomeProduto) == 0) {
@@ -94,8 +94,8 @@ void alterar_informacoes_produto(Produto produtos[]) {
             strtok(produtos[i].categoria, "\n");
 
             printf("\n\nAs informacoes do produto foram atualizadas com sucesso!\n");
-            break;
             getch();
+            break;
             system("cls");
             menu();
         }
@@ -115,10 +115,11 @@ void remover_produto(Produto produtos[]) {
     char nomeProduto[50];
     int produtoEncontrado = 0;
 
+    // Recebe o nome do produto que será removido.
     printf("Informe o nome do produto que deseja remover: ");
-    fflush(stdin); // Limpa o buffer de entrada
+    fflush(stdin);
     fgets(nomeProduto, sizeof(nomeProduto), stdin);
-    strtok(nomeProduto, "\n"); // Remove o caractere de nova linha
+    strtok(nomeProduto, "\n");
 
     for (int i = 0; i < NUM_PRODUTOS; i++) {
         if (strcmp(produtos[i].nome, nomeProduto) == 0) {
@@ -147,7 +148,7 @@ void menu() {
     int opcao;
 
     do {
-        system("cls");  // Limpa a tela a cada nova opção do menu.
+        system("cls"); // Limpa a tela a cada nova opção do menu.
         printf("==== MENU DE OPCOES ====");
         printf("\n[1] Cadastrar novo produto");
         printf("\n[2] Listar produtos cadastrados");
