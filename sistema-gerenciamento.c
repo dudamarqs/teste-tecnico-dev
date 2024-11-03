@@ -127,7 +127,12 @@ void alterar_informacoes_produto() {
     printf("=== ATUALIZAR PRODUTO ===\n");
     
     while (1) {
-        ler_string(nomeProduto, sizeof(nomeProduto), "\nInforme o nome do produto que sera atualizado: ");
+        ler_string(nomeProduto, sizeof(nomeProduto), "\nInforme o nome do produto que sera atualizado (ou 'sair' para voltar ao Menu): ");
+
+        // Verifica se o usuário deseja sair
+        if (strcmp(nomeProduto, "sair") == 0) {
+            return; // Retorna ao menu
+        }
         
         for (int i = 0; i < contador_produtos; i++) {
             if (strcmp(produtos[i].nome, nomeProduto) == 0) {
@@ -169,8 +174,12 @@ void remover_produto() {
     printf("=== REMOVER PRODUTO ===\n\n");
     
     while (1) {
-        ler_string(nomeProduto, sizeof(nomeProduto), "Informe o nome do produto que deseja remover (ou 'x' para voltar ao Menu): ");
+        ler_string(nomeProduto, sizeof(nomeProduto), "Informe o nome do produto que deseja remover (ou 'sair' para voltar ao Menu): ");
 
+        // Verifica se o usuário deseja sair
+        if (strcmp(nomeProduto, "sair") == 0) {
+            return; // Retorna ao menu
+        }
         
         for (int i = 0; i < contador_produtos; i++) {
             if (strcmp(produtos[i].nome, nomeProduto) == 0) {
@@ -197,7 +206,7 @@ void remover_produto() {
         }
 
         if (!produtoEncontrado) {
-            printf("Produto não encontrado.\n");
+            printf("Produto nao encontrado.\n");
         }
     }
 }
