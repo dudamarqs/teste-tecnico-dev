@@ -148,7 +148,7 @@ void alterar_informacoes_produto() {
                 printf("\nAs informacoes do produto foram atualizadas com sucesso!\n");
                 
                 char resp;
-                printf("Deseja atualizar outro produto? [s/n] ");
+                printf("\nDeseja atualizar outro produto? [s/n] ");
                 resp = getchar(); // Aqui você lê a resposta do usuário
                 limpar_buffer(); // Limpa o buffer após a leitura
                 
@@ -162,7 +162,7 @@ void alterar_informacoes_produto() {
 
         if (!produtoEncontrado) {
             printf("Produto nao cadastrado.\n");
-        }
+        } // Verifica se o produto está cadastrado.
     }
 }
 
